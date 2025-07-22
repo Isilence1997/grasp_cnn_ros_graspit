@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/hhy/graspit_ros_ws/devel/setup.sh

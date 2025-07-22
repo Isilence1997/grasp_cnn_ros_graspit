@@ -1,0 +1,2 @@
+graspit_commander:graspit_interface:image_collect:openni_camera/openni_camera:openni_camera/openni_description:openni_camera/openni_launch
+-DCATKIN_DEVEL_PREFIX=/home/hhy/graspit_ros_ws/devel -DCMAKE_INSTALL_PREFIX=/home/hhy/graspit_ros_ws/install -G Unix Makefiles

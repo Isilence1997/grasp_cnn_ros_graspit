@@ -1,0 +1,7 @@
+set(graspit_commander_SETUP_PY_SETUP_MODULE "setuptools")
+set(graspit_commander_SETUP_PY_VERSION "0.1.0")
+set(graspit_commander_SETUP_PY_SCRIPTS "")
+set(graspit_commander_SETUP_PY_PACKAGES "graspit_commander")
+set(graspit_commander_SETUP_PY_PACKAGE_DIRS "src/graspit_commander")
+set(graspit_commander_SETUP_PY_MODULES "")
+set(graspit_commander_SETUP_PY_MODULE_DIRS "")

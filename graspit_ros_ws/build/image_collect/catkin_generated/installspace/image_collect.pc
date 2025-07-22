@@ -1,0 +1,8 @@
+prefix=/home/hhy/graspit_ros_ws/install
+
+Name: image_collect
+Description: Description of image_collect
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,43 @@
+clear;
+clc
+rosshutdown;
+% rosinit('192.168.1.30');
+rosinit;
+sub_points = rossubscriber('/kinect2/qhd/points','sensor_msgs/PointCloud2');
+%gazebo sim  仿真
+%sub_points = rossubscriber('/kinect/depth/points','sensor_msgs/PointCloud2');
+msg_points= receive(sub_points);
+points=readXYZ(msg_points); %���ÿ���xyz���
+disp('get points');
+rosshutdown;
+
+IMG_PATH = '/home/peter/Desktop/shiyan/data';
+num='02';
+% rosinit('192.168.1.30');
+rosinit;
+sub_image = rossubscriber('/kinect2/qhd/image_color_rect','sensor_msgs/Image');
+ %sub_image = rossubscriber('/kinect/rgb/image_raw','sensor_msgs/Image');
+msg_image = receive(sub_image);
+img = readImage(msg_image);
+disp('get img');
+%imwrite(img,[IMG_PATH, '/images_rgb/',num2str(num),'_rgb.jpg']);
+
+%sub_depth = rossubscriber('/kinect2/qhd/image_depth_rect','sensor_msgs/Image');
+ %sub_image = rossubscriber('/kinect/rgb/image_raw','sensor_msgs/Image');
+%msg_depth = receive(sub_depth);
+%depth = readImage(msg_depth);
+%imwrite(depth,[IMG_PATH, '/images_depth/',num2str(num),'_depth.jpg']);
+%disp('get depth');
+rosshutdown;
+
+% rosinit('192.168.1.30');
+rosinit;
+pub_msg = rospublisher('/ros_msg','geometry_msgs/Pose');
+pause(2);
+msg = rosmessage(pub_msg);
+load cnn0;
+load cnn1;
+load cnn2;
+load cnn_deep;
+load cnn_multi_finger;
+save data_001.mat msg_points points msg_image img num

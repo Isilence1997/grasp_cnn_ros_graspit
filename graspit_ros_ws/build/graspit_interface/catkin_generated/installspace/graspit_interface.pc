@@ -1,0 +1,8 @@
+prefix=/home/hhy/graspit_ros_ws/install
+
+Name: graspit_interface
+Description: Description of graspit_interface
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs std_msgs message_runtime
