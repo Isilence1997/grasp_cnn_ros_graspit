@@ -1,47 +1,30 @@
-[![Build Status](https://travis-ci.org/graspit-simulator/graspit.svg?branch=master)](https://travis-ci.org/graspit-simulator/graspit)
+**Notes**：实际实验笔记
+### 仿真数据采集：
+- graspit：graspit包，models为物体模型，robots/shadowHandLast/shadowhanlite.xml为四指shadow模型
+- graspit_ros_ws :graspit与ros接口，
 
-<h1>GraspIt!</h1>
+### 打开graspit：
+- `roslaunch graspit_interface graspit_interface.launch`
+- 在gazebo中自动采集物体图片`graspit_ros_ws\src\image_collect\src\auto_collect_data.py`
 
-Introduction
-------------
-Please see the User Manual found at http://graspit-simulator.github.io/ for an introduction to GraspIt!, a list of
-features, installation instructions, getting started examples, etc.
+### 实际实验
+`og_exp_ws\src\demo_z`: UR,shado控制程序
+`\demo_ur_drive.py` 控制UR执行抓取
+ `\demo_sr_drive.py` 控制shadow执行抓取
+`\demo_ur_recover.py` 控制UR回到初始位置
+`\demo_sr_recover.py` 控制shadow张开
+`og_exp_ws\src\image_save`: kinect采集彩色和深度图像
 
-Distribution Contents
----------------------
+### 抓取框检测网络
 
-**CMakeLists.txt**: Used to compile GraspIt!, multiple flags that can be set with ccmake. <br />
-**CMakeMacros**: contains .cmake files used to find GraspIt! dependencies.  <br />
-**cmdline**: command line parser used by GraspIt!.  <br />
-**ci**: contains scripts used by travis ci.  <br />
-**doc**: Documentation.  Contains both the User Manual and code Reference Manual. The User Manual contains installation instructions, pointers for getting started, examples, and trouble shooting and contact information. <br />
-**images**: A place to put images saved from GraspIt! <br />
-**include**: Header files for the main GraspIt! source code <br />
-**LICENSE.txt**: A copy of the license you accepted when you downloaded this. <br />
-**models**: The geometry and configuration files for all the robots and
-		objects. <br />
-**plugins**:  Examples for creating plugins that can be loaded into GraspIt! 
-                 at run time, and can use GraspIt! without being statically linked
-		 into GraspIt's main executable. <br />
-**ply**:  Code for loading .ply files; see header files for authorship 
-                information and detail. <br />
-**qhull**: A popular package for computing n-dimensional convex hulls.
-		This is used both for the contact system and to create grasp
-	      wrench spaces. <br />
-**README.md**:  This file. <br />
-**src**:  The source code for GraspIt!. <br />
-**src/DBase**: source code for the interface between GraspIt and the Columbia 
-		Grasp Database <br />
-**tinyxml**: a library for processing XML documents. See the header files 
-		therein for license and author information for this package. <br />
-**ui**:	The dialog windows and interfaces for GraspIt!. <br />
-**worlds**: A place to save GraspIt! worlds.  Also includes a few
-		examples. <br />
+`ros_matlab_multi_finger` :用于生成抓取框，以及发布灵巧手的位姿信息。
+`result_play.m` 显示框在图中的位置并保存.
+`get_patch.m` 获取整体和局部深度图.
+ `well_cal.m` 发布ur5位姿,生成相对物体的位姿zxyzw.txt.
+`get_patch.py` 输入深度图，角度，中心点位置，大小，返回patch;
+main函数生成overall
+`get_patches.py` :已有graspit_data,对其进行处理，包括grasp2pose，grasp2dof,save_poseAnddofs,getZerosPatches(),delete_TH3
+`getPatches(patch_size,pose_file,index,depth_path,save_path)`:指定patch大小,物体和手pose，保存patch到save_path
+ `get_testdata.py:get_testdata()`返回zxyzw并保存patch
+`get_pose.py:pose2patch()` 有问题，相机外参和内参不正确（wTcsim）
 
-Examples of How to Integrate GraspIt! into your own Project
----------------------
-
-https://github.com/graspit-simulator/graspit_interface <br />
-https://github.com/JenniferBuehler/graspit-pkgs <br />
-https://github.com/ros-interactive-manipulation/graspit_simulator <br />
-https://github.com/OSUrobotics/graspit_ros_plannings <br />
