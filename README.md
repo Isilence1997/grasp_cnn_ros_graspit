@@ -8,12 +8,12 @@
 - 在gazebo中自动采集物体图片`graspit_ros_ws\src\image_collect\src\auto_collect_data.py`
 
 ### 实际实验
-`og_exp_ws\src\demo_z`: UR,shado控制程序
-`\demo_ur_drive.py` 控制UR执行抓取
- `\demo_sr_drive.py` 控制shadow执行抓取
-`\demo_ur_recover.py` 控制UR回到初始位置
-`\demo_sr_recover.py` 控制shadow张开
-`og_exp_ws\src\image_save`: kinect采集彩色和深度图像
+`og_exp_ws\src\demo_z`: UR,shado控制程序   
+`\demo_ur_drive.py` 控制UR执行抓取  
+ `\demo_sr_drive.py` 控制shadow执行抓取  
+`\demo_ur_recover.py` 控制UR回到初始位置  
+`\demo_sr_recover.py` 控制shadow张开  
+`og_exp_ws\src\image_save`: kinect采集彩色和深度图像  
 
 ### 抓取框检测网络
 
