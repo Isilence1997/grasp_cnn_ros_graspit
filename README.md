@@ -17,14 +17,14 @@
 
 ### 抓取框检测网络
 
-`ros_matlab_multi_finger` :用于生成抓取框，以及发布灵巧手的位姿信息。
-`result_play.m` 显示框在图中的位置并保存.
-`get_patch.m` 获取整体和局部深度图.
- `well_cal.m` 发布ur5位姿,生成相对物体的位姿zxyzw.txt.
+`ros_matlab_multi_finger` :用于生成抓取框，以及发布灵巧手的位姿信息。\n
+`result_play.m` 显示框在图中的位置并保存.\n
+`get_patch.m` 获取整体和局部深度图.\n
+ `well_cal.m` 发布ur5位姿,生成相对物体的位姿zxyzw.txt. \n
 `get_patch.py` 输入深度图，角度，中心点位置，大小，返回patch;
-main函数生成overall
-`get_patches.py` :已有graspit_data,对其进行处理，包括grasp2pose，grasp2dof,save_poseAnddofs,getZerosPatches(),delete_TH3
-`getPatches(patch_size,pose_file,index,depth_path,save_path)`:指定patch大小,物体和手pose，保存patch到save_path
- `get_testdata.py:get_testdata()`返回zxyzw并保存patch
-`get_pose.py:pose2patch()` 有问题，相机外参和内参不正确（wTcsim）
+main函数生成overall \n
+`get_patches.py` :已有graspit_data,对其进行处理，包括grasp2pose，grasp2dof,save_poseAnddofs,getZerosPatches(),delete_TH3 \n
+`getPatches(patch_size,pose_file,index,depth_path,save_path)`:指定patch大小,物体和手pose，保存patch到save_path \n
+ `get_testdata.py:get_testdata()`返回zxyzw并保存patch \n
+`get_pose.py:pose2patch()` 有问题，相机外参和内参不正确（wTcsim） \n
 
